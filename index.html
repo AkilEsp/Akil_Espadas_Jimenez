@@ -167,45 +167,46 @@
   <!-- 2. ESCRITORIO Y SUS ICONOS (Draggables) -->
   <div id="desktop" class="absolute inset-0 p-4 h-[calc(100vh-30px)]">
     
-    <div class="desktop-icon" data-win="sobre-mi" style="top: 20px; left: 20px;">
+    <!-- Easter Egg: Papelera (Movida a la esquina superior izquierda) -->
+    <div class="desktop-icon" id="icon-papelera" style="top: 20px; left: 20px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+      <span class="desktop-icon-text">Papelera</span>
+    </div>
+
+    <!-- Resto de iconos desplazados para mantener el orden -->
+    <div class="desktop-icon" data-win="sobre-mi" style="top: 110px; left: 20px;">
       <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Sobre_Mi.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="experiencia" style="top: 110px; left: 20px;">
+    <div class="desktop-icon" data-win="experiencia" style="top: 200px; left: 20px;">
       <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Experiencia.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="educacion" style="top: 200px; left: 20px;">
+    <div class="desktop-icon" data-win="educacion" style="top: 290px; left: 20px;">
       <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Educacion.txt</span>
     </div>
     
-    <div class="desktop-icon" data-win="habilidades" style="top: 290px; left: 20px;">
+    <div class="desktop-icon" data-win="habilidades" style="top: 380px; left: 20px;">
       <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Habilidades.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="proyectos" style="top: 380px; left: 20px;">
+    <div class="desktop-icon" data-win="proyectos" style="top: 20px; left: 110px;">
       <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">MIS_PROYECTOS</span>
     </div>
     
-    <div class="desktop-icon" data-win="contacto" style="top: 20px; left: 110px;">
+    <div class="desktop-icon" data-win="contacto" style="top: 110px; left: 110px;">
       <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Contacto.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="akil" style="top: 110px; left: 110px;">
+    <div class="desktop-icon" data-win="akil" style="top: 200px; left: 110px;">
       <img src="https://win98icons.alexmeub.com/icons/png/application_executable_0-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text font-bold">Akil.exe</span>
-    </div>
-
-    <!-- Easter Egg: Papelera -->
-    <div class="desktop-icon" id="icon-papelera" style="top: 380px; left: 110px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
-      <span class="desktop-icon-text">Papelera</span>
     </div>
   </div>
 
@@ -321,26 +322,70 @@
       <div class="xp-close-btn" onclick="closeWindow('proyectos')">X</div>
     </div>
     <div class="window-content bg-white space-y-4">
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <h4 class="font-bold text-sm text-blue-800">🛒 Desarrollo E-commerce (Solís BM Pozuelo)</h4>
-        <p class="text-xs">Proyecto web real para club de 1ª División Española. En fase de diseño e implementación tras captación de requisitos.</p>
-      </div>
+      
+      <!-- Ciberseguridad -->
       <div class="border border-gray-200 p-2 hover:bg-blue-50">
         <h4 class="font-bold text-sm text-blue-800">🔒 Ciberseguridad (CVE-41892)</h4>
         <p class="text-xs">Análisis de vulnerabilidad en entorno controlado, estudio de su explotación y aplicación de medidas de resolución.</p>
       </div>
+
+      <!-- Redes y Seguridad -->
       <div class="border border-gray-200 p-2 hover:bg-blue-50">
         <h4 class="font-bold text-sm text-blue-800">🌐 Redes y Seguridad</h4>
-        <p class="text-xs">Diseño de red segura para un edificio de la UAH utilizando Packet Tracer sobre planos reales y aplicando políticas de seguridad.</p>
+        <p class="text-xs">Diseño de red segura para edificio de la UAH utilizando Packet Tracer sobre planos y aplicando políticas de seguridad.</p>
       </div>
+
+      <!-- E-commerce -->
       <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <h4 class="font-bold text-sm text-blue-800">🤖 Inteligencia Artificial (PeTracker)</h4>
-        <p class="text-xs">Proyecto de visión artificial para la clasificación y búsqueda de mascotas perdidas.</p>
+        <h4 class="font-bold text-sm text-blue-800">🛒 Desarrollo E-commerce (BM Pozuelo)</h4>
+        <p class="text-xs">Proyecto web real para club de 1ª División Española. En fase de diseño e implementación tras captación de requisitos.</p>
       </div>
+
+      <!-- Sistemas Distribuidos (Bicis) -->
       <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <h4 class="font-bold text-sm text-blue-800">🎵 Desarrollo Distribuido (Spotifice)</h4>
-        <p class="text-xs">Creación de una aplicación distribuida basada en la arquitectura de Spotify.</p>
+        <div class="flex justify-between items-start mb-1">
+          <h4 class="font-bold text-sm text-blue-800">🚲 Sistemas Distribuidos (Alquiler Bicicletas)</h4>
+          <a href="https://github.com/AkilEspa/TysWebMio" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+        </div>
+        <p class="text-xs">Plataforma web con pasarela de pago, simulador de tráfico en tiempo real y validación segura de tokens de sesión.</p>
       </div>
+
+      <!-- Machine Learning -->
+      <div class="border border-gray-200 p-2 hover:bg-blue-50">
+        <div class="flex justify-between items-start mb-1">
+          <h4 class="font-bold text-sm text-blue-800">🧠 Machine Learning (NLP)</h4>
+          <a href="https://github.com/Aitor42/0-AiDea" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+        </div>
+        <p class="text-xs">Desarrollo de un clasificador de texto multilingüe y análisis de tópicos (BERTopic) para inferencia de lenguaje natural.</p>
+      </div>
+
+      <!-- IPOKEMON -->
+      <div class="border border-gray-200 p-2 hover:bg-blue-50">
+        <div class="flex justify-between items-start mb-1">
+          <h4 class="font-bold text-sm text-blue-800">👾 IPOKemon (C# y UWP)</h4>
+          <a href="https://github.com/AkilEspa/IPOKEMON" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+        </div>
+        <p class="text-xs">Aplicación de escritorio responsive con Fluent Design enfocada en UI/UX, incluye minijuego de combate y notificaciones Windows.</p>
+      </div>
+
+      <!-- Multimedia -->
+      <div class="border border-gray-200 p-2 hover:bg-blue-50">
+        <div class="flex justify-between items-start mb-1">
+          <h4 class="font-bold text-sm text-blue-800">🔄 Conversor y Compresor Multimedia</h4>
+          <a href="https://github.com/AkilEspa/multimedia_lab" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+        </div>
+        <p class="text-xs">Aplicación web para gestión, conversión de formatos y reducción de tamaño de archivos (imágenes, audio, vídeo, ZIP) con reportes PDF.</p>
+      </div>
+
+      <!-- PeTracker -->
+      <div class="border border-gray-200 p-2 hover:bg-blue-50">
+        <div class="flex justify-between items-start mb-1">
+          <h4 class="font-bold text-sm text-blue-800">🐕 PeTracker (Visión Artificial)</h4>
+          <a href="https://github.com/JoseFelixBarbRoj/isi-PeTracker" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+        </div>
+        <p class="text-xs">Proyecto de inteligencia artificial y visión por computador para la clasificación y búsqueda de mascotas perdidas.</p>
+      </div>
+
     </div>
   </div>
 
