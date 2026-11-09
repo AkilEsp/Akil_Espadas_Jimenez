@@ -173,7 +173,7 @@
       <span class="desktop-icon-text">Papelera</span>
     </div>
 
-    <!-- Resto de iconos desplazados para mantener el orden -->
+    <!-- Iconos Primera Columna -->
     <div class="desktop-icon" data-win="sobre-mi" style="top: 110px; left: 20px;">
       <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Sobre_Mi.txt</span>
@@ -194,6 +194,7 @@
       <span class="desktop-icon-text">Habilidades.txt</span>
     </div>
 
+    <!-- Iconos Segunda Columna -->
     <div class="desktop-icon" data-win="proyectos" style="top: 20px; left: 110px;">
       <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">MIS_PROYECTOS</span>
@@ -204,7 +205,13 @@
       <span class="desktop-icon-text">Contacto.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="akil" style="top: 200px; left: 110px;">
+    <!-- NUEVO: Botón de descarga de CV con un icono destacado (CD/Disco) -->
+    <div class="desktop-icon" data-win="descarga-cv" style="top: 200px; left: 110px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+      <span class="desktop-icon-text font-bold text-yellow-300">Descargar_CV</span>
+    </div>
+
+    <div class="desktop-icon" data-win="akil" style="top: 290px; left: 110px;">
       <img src="https://win98icons.alexmeub.com/icons/png/application_executable_0-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text font-bold">Akil.exe</span>
     </div>
@@ -225,6 +232,33 @@
     </div>
   </div>
 
+  <!-- NUEVO: Ventana de Descarga del CV -->
+  <div id="win-descarga-cv" class="xp-window hidden w-[350px] shadow-2xl" style="top: 35%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; position: absolute;">
+    <div class="xp-titlebar">
+      <span>Descarga de Archivo</span>
+      <div class="xp-close-btn" onclick="closeWindow('descarga-cv')">X</div>
+    </div>
+    <div class="window-content bg-[#ece9d8] p-4 m-0 border-none border-b border-gray-400">
+      <div class="flex gap-4 items-center mb-4">
+        <img src="https://win98icons.alexmeub.com/icons/png/file_pdf-1.png" class="w-12 h-12 pointer-events-none">
+        <div>
+          <h4 class="font-bold text-sm text-gray-800">CV_Akil_Espadas_Jimenez.pdf</h4>
+          <p class="text-xs text-gray-600 mt-1">Documento PDF (Ciberseguridad y Desarrollo)</p>
+        </div>
+      </div>
+      
+    </div>
+    <div class="bg-[#ece9d8] p-3 flex justify-center gap-3 m-0">
+      <!-- El enlace apunta al archivo local en el mismo repo -->
+      <a href="CV_Akil_Espadas_Jimenez.pdf" download="CV_Akil_Espadas_Jimenez.pdf" class="px-6 py-1.5 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-xs font-bold text-black no-underline active:translate-y-[1px] cursor-pointer text-center">
+        📥 Descargar
+      </a>
+      <button onclick="closeWindow('descarga-cv')" class="px-6 py-1.5 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-xs active:translate-y-[1px]">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
   <!-- Ventana: Sobre Mi -->
   <div id="win-sobre-mi" class="xp-window hidden w-[400px] h-[340px]" style="top: 40px; left: 200px;">
     <div class="xp-titlebar">
@@ -240,7 +274,7 @@
       <p><strong>Datos Adicionales:</strong></p>
       <ul class="list-disc pl-4 text-xs space-y-1">
         <li>Mención Honorífica en educación secundaria (Media ≥ 9).</li>
-        <li>Voluntariado: Recogida de residuos, Lagunas de Ruidera (2022/2023).</li>
+        <li>Voluntariado: Recogida de residuos, Lagunas de Ruidera (2024/2025).</li>
         <li>Cinturón Marrón de Karate & Ex-jugador federado (Balonmano/Baloncesto).</li>
         <li>Título de Buceo Open Water (hasta 20m).</li>
         <li>Permiso de conducir (B) y vehículo propio.</li>
@@ -600,8 +634,6 @@
     };
 
     let obstacles = [];
-    
-    // NUEVOS OBSTÁCULOS ACTUALIZADOS SEGÚN EL CV
     const stages = ["Media ≥ 9", "UCLM ESI", "Inglés B2", "Open Water", "Karate", "CVE-41892","Voluntariado"];
     
     // Controles
