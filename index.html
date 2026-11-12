@@ -36,12 +36,13 @@
 
     .xp-titlebar {
       background: linear-gradient(to bottom, #0058e6 0%, #3a93ff 8%, #288eff 40%, #127dff 88%, #036bde 100%);
-      padding: 4px 6px;
+      padding: 6px 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
       font-weight: bold;
+      font-size: 16px;
       text-shadow: 1px 1px 1px #0f1089;
       cursor: grab;
     }
@@ -56,15 +57,15 @@
       border-radius: 3px;
       color: white;
       font-weight: bold;
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       box-shadow: 0 1px 2px rgba(0,0,0,0.3);
       font-family: sans-serif;
-      font-size: 14px;
+      font-size: 16px;
     }
     
     .xp-close-btn:active {
@@ -78,8 +79,8 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 30px;
-      z-index: 9999;
+      height: 36px;
+      z-index: 99990;
       display: flex;
       justify-content: space-between;
     }
@@ -93,17 +94,18 @@
       font-weight: bold;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
       height: 100%;
-      padding: 0 15px 0 10px;
+      padding: 0 20px 0 15px;
       display: flex;
       align-items: center;
       cursor: pointer;
+      font-size: 18px;
     }
 
     .xp-start-btn:active {
       background: linear-gradient(to bottom, #227015 0%, #298c19 50%, #3cae27 90%, #349c25 100%);
     }
 
-    ::-webkit-scrollbar { width: 15px; }
+    ::-webkit-scrollbar { width: 18px; }
     ::-webkit-scrollbar-track { background: #f1ebd8; border-left: 1px solid #d4d0c8; }
     ::-webkit-scrollbar-thumb { background: #c2c6de; border: 1px solid #9496b5; border-radius: 2px; }
 
@@ -111,7 +113,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 72px;
+      width: 80px;
       cursor: pointer;
       text-align: center;
       position: absolute; /* Para permitir Drag & Drop */
@@ -120,7 +122,7 @@
 
     .desktop-icon-text {
       color: white;
-      font-size: 11px;
+      font-size: 13px;
       text-shadow: 1px 1px 2px black;
       margin-top: 4px;
       padding: 2px 4px;
@@ -137,27 +139,28 @@
       border: 1px solid #7f9db9;
       flex: 1;
       overflow-y: auto;
-      padding: 12px;
-      font-size: 13px;
+      padding: 24px;
+      font-size: 16px; /* Letra más grande por defecto */
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. PANTALLA DE BIENVENIDA -->
-  <div id="welcome-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-    <div class="xp-window w-[90%] sm:w-[550px]" style="position: relative;">
+  <!-- 1. PANTALLA DE BIENVENIDA (Con z-index altísimo para el botón de inicio) -->
+  <div id="welcome-screen" class="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-md" style="z-index: 99999;">
+    <div class="xp-window w-[95%] sm:w-[700px] max-w-full" style="position: relative;">
       <div class="xp-titlebar">
         <span>Sistema - Perfil Profesional</span>
       </div>
-      <div class="window-content flex flex-col sm:flex-row gap-6 items-center sm:items-start p-6 bg-[#ece9d8]">
-        <img src="fotoCV.jpeg" alt="Akil" class="w-32 h-32 object-cover border-2 border-gray-400 shadow-md">
-        <div class="text-sm text-gray-800 leading-relaxed">
-          <h2 class="font-bold text-lg mb-2 text-blue-800">Akil Espadas Jiménez</h2>
-          <p class="mb-4">Estudiante de último año de Ingeniería Informática con fuerte vocación hacia la Ciberseguridad. Destaco por mi carácter templado, lo que me permite mantener la calma y encontrar soluciones óptimas ante la frustración o fallos técnicos.</p>
-          <p class="mb-4">Busco mi primera oportunidad en un entorno profesional real para aportar mi actitud proactiva, mi alta capacidad para trabajar en equipo y mi firme voluntad de aprendizaje continuo.</p>
-          <div class="flex justify-end mt-4">
-            <button onclick="document.getElementById('welcome-screen').style.display='none'" class="px-6 py-1.5 border border-gray-600 bg-gray-200 shadow hover:bg-gray-300 font-bold active:translate-y-[1px]">Entrar al Escritorio</button>
+      <div class="window-content flex flex-col sm:flex-row gap-8 items-center sm:items-start p-8 bg-[#ece9d8]">
+        <img src="fotoCV.jpeg" alt="Akil" class="w-48 h-48 object-cover border-4 border-gray-400 shadow-lg rounded">
+        <div class="text-base text-gray-900 leading-relaxed">
+          <h2 class="font-bold text-3xl mb-3 text-blue-900 drop-shadow-sm">Akil Espadas Jiménez</h2>
+          <p class="mb-4 text-lg">Estudiante de último año de Ingeniería Informática con una <strong>fuerte vocación hacia la Ciberseguridad</strong>. Destaco por mi carácter templado, lo que me permite mantener la calma absoluta y encontrar soluciones óptimas ante la frustración, presión o fallos técnicos críticos.</p>
+          <p class="mb-4 text-lg">Busco mi primera oportunidad en un entorno profesional real para aportar mi actitud proactiva, mi altísima capacidad para trabajar en equipo y mi firme voluntad de aprendizaje continuo en el sector IT.</p>
+          <div class="flex justify-end mt-6">
+            <button onclick="document.getElementById('welcome-screen').style.display='none'" class="px-8 py-3 border-2 border-gray-600 bg-gray-200 shadow-md hover:bg-gray-300 font-bold text-lg active:translate-y-[2px]">Entrar al Escritorio</button>
           </div>
         </div>
       </div>
@@ -165,314 +168,464 @@
   </div>
 
   <!-- 2. ESCRITORIO Y SUS ICONOS (Draggables) -->
-  <div id="desktop" class="absolute inset-0 p-4 h-[calc(100vh-30px)]">
+  <div id="desktop" class="absolute inset-0 p-4 h-[calc(100vh-36px)]">
     
     <!-- Easter Egg: Papelera -->
     <div class="desktop-icon" id="icon-papelera" style="top: 20px; left: 20px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+      <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Papelera</span>
     </div>
 
     <!-- Iconos Primera Columna -->
-    <div class="desktop-icon" data-win="sobre-mi" style="top: 110px; left: 20px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="sobre-mi" style="top: 130px; left: 20px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Sobre_Mi.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="experiencia" style="top: 200px; left: 20px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="experiencia" style="top: 240px; left: 20px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Experiencia.txt</span>
     </div>
 
-    <div class="desktop-icon" data-win="educacion" style="top: 290px; left: 20px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="educacion" style="top: 350px; left: 20px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Educacion.txt</span>
     </div>
     
-    <div class="desktop-icon" data-win="habilidades" style="top: 380px; left: 20px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="habilidades" style="top: 460px; left: 20px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Habilidades.txt</span>
     </div>
 
     <!-- Iconos Segunda Columna -->
-    <div class="desktop-icon" data-win="proyectos" style="top: 20px; left: 110px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="proyectos" style="top: 20px; left: 130px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">MIS_PROYECTOS</span>
     </div>
     
-    <div class="desktop-icon" data-win="contacto" style="top: 110px; left: 110px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="contacto" style="top: 130px; left: 130px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text">Contacto.txt</span>
     </div>
 
-    <!-- NUEVO: Botón de descarga de CV con un icono destacado (CD/Disco) -->
-    <div class="desktop-icon" data-win="descarga-cv" style="top: 200px; left: 110px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="descarga-cv" style="top: 240px; left: 130px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text font-bold text-yellow-300">Descargar_CV</span>
     </div>
 
-    <div class="desktop-icon" data-win="akil" style="top: 290px; left: 110px;">
-      <img src="https://win98icons.alexmeub.com/icons/png/application_executable_0-0.png" class="w-10 h-10 mb-1 drop-shadow-md pointer-events-none">
+    <div class="desktop-icon" data-win="akil" style="top: 350px; left: 130px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/application_executable_0-0.png" class="w-12 h-12 mb-1 drop-shadow-md pointer-events-none">
       <span class="desktop-icon-text font-bold">Akil.exe</span>
     </div>
   </div>
 
   <!-- 3. CUADRO DE DIÁLOGO ERROR PAPELERA (Easter Egg) -->
-  <div id="error-dialog" class="xp-window hidden w-[320px] shadow-2xl" style="top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; position: absolute;">
+  <div id="error-dialog" class="xp-window hidden w-[400px] shadow-2xl" style="top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; position: absolute;">
     <div class="xp-titlebar">
       <span>Error de Sistema</span>
       <div class="xp-close-btn" onclick="document.getElementById('error-dialog').classList.add('hidden')">X</div>
     </div>
-    <div class="window-content bg-[#ece9d8] flex gap-4 items-center p-4 m-0 border-none border-b border-gray-400">
-      <div class="text-4xl">⚠️</div>
-      <div class="text-sm font-bold text-gray-800">¡No borres mi página!</div>
+    <div class="window-content bg-[#ece9d8] flex gap-4 items-center p-6 m-0 border-none border-b border-gray-400">
+      <div class="text-5xl">⚠️</div>
+      <div class="text-lg font-bold text-gray-800">¡Acción no permitida! No borres mi portfolio.</div>
     </div>
-    <div class="bg-[#ece9d8] p-3 flex justify-center m-0">
-      <button onclick="document.getElementById('error-dialog').classList.add('hidden')" class="px-6 py-1 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-xs active:translate-y-[1px]">Aceptar</button>
+    <div class="bg-[#ece9d8] p-4 flex justify-center m-0">
+      <button onclick="document.getElementById('error-dialog').classList.add('hidden')" class="px-8 py-2 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 font-bold active:translate-y-[1px]">Aceptar</button>
     </div>
   </div>
 
-  <!-- NUEVO: Ventana de Descarga del CV -->
-  <div id="win-descarga-cv" class="xp-window hidden w-[350px] shadow-2xl" style="top: 35%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; position: absolute;">
+  <!-- Ventana de Descarga del CV -->
+  <div id="win-descarga-cv" class="xp-window hidden w-[450px] shadow-2xl" style="top: 35%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; position: absolute;">
     <div class="xp-titlebar">
       <span>Descarga de Archivo</span>
       <div class="xp-close-btn" onclick="closeWindow('descarga-cv')">X</div>
     </div>
-    <div class="window-content bg-[#ece9d8] p-4 m-0 border-none border-b border-gray-400">
-      <div class="flex gap-4 items-center mb-4">
-        <img src="https://win98icons.alexmeub.com/icons/png/file_pdf-1.png" class="w-12 h-12 pointer-events-none">
+    <div class="window-content bg-[#ece9d8] p-6 m-0 border-none border-b border-gray-400">
+      <div class="flex gap-4 items-center mb-6">
+        <img src="https://win98icons.alexmeub.com/icons/png/file_pdf-1.png" class="w-16 h-16 pointer-events-none">
         <div>
-          <h4 class="font-bold text-sm text-gray-800">CV_Akil_Espadas_Jimenez.pdf</h4>
-          <p class="text-xs text-gray-600 mt-1">Documento PDF (Ciberseguridad y Desarrollo)</p>
+          <h4 class="font-bold text-lg text-gray-800">CV_Akil_Espadas_Jimenez.pdf</h4>
+          <p class="text-base text-gray-600 mt-1">Documento PDF (Versión Completa)</p>
         </div>
       </div>
-      
+      <p class="text-lg text-gray-800 font-bold bg-white p-4 border-2 border-gray-300 text-center shadow-inner">
+        Pulsa abajo para descargar mi CV completo ⬇️
+      </p>
     </div>
-    <div class="bg-[#ece9d8] p-3 flex justify-center gap-3 m-0">
-      <!-- El enlace apunta al archivo local en el mismo repo -->
-      <a href="CV_Akil_Espadas_Jimenez.pdf" download="CV_Akil_Espadas_Jimenez.pdf" class="px-6 py-1.5 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-xs font-bold text-black no-underline active:translate-y-[1px] cursor-pointer text-center">
-        📥 Descargar
+    <div class="bg-[#ece9d8] p-4 flex justify-center gap-4 m-0">
+      <a href="CV_Akil_Espadas_Jimenez.pdf" download="CV_Akil_Espadas_Jimenez.pdf" class="px-8 py-2 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-base font-bold text-black no-underline active:translate-y-[1px] cursor-pointer text-center flex items-center gap-2">
+        📥 Descargar Archivo
       </a>
-      <button onclick="closeWindow('descarga-cv')" class="px-6 py-1.5 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-xs active:translate-y-[1px]">
+      <button onclick="closeWindow('descarga-cv')" class="px-8 py-2 border-2 border-gray-400 bg-gray-100 shadow hover:bg-gray-200 text-base font-bold active:translate-y-[1px]">
         Cancelar
       </button>
     </div>
   </div>
 
-  <!-- Ventana: Sobre Mi -->
-  <div id="win-sobre-mi" class="xp-window hidden w-[400px] h-[340px]" style="top: 40px; left: 200px;">
+  <!-- Ventana: Sobre Mi (AHORA GIGANTE) -->
+  <div id="win-sobre-mi" class="xp-window hidden w-[80vw] h-[80vh] max-w-[1000px] max-h-[800px]" style="top: 5vh; left: 5vw;">
     <div class="xp-titlebar">
       <span>📝 Sobre_Mi.txt - Bloc de notas</span>
       <div class="xp-close-btn" onclick="closeWindow('sobre-mi')">X</div>
     </div>
-    <div class="window-content space-y-3 text-sm">
-      <p><strong>Nombre:</strong> Akil Espadas Jiménez</p>
-      <p><strong>Ubicación:</strong> Ciudad Real, España</p>
-      <hr>
-      <p><strong>Soft Skills:</strong><br> Resiliencia técnica, Trabajo en equipo, Empatía y gran control del estrés (perfil muy sereno y resolutivo).</p>
-      <hr>
-      <p><strong>Datos Adicionales:</strong></p>
-      <ul class="list-disc pl-4 text-xs space-y-1">
-        <li>Mención Honorífica en educación secundaria (Media ≥ 9).</li>
-        <li>Voluntariado: Recogida de residuos, Lagunas de Ruidera (2024/2025).</li>
-        <li>Cinturón Marrón de Karate & Ex-jugador federado (Balonmano/Baloncesto).</li>
-        <li>Título de Buceo Open Water (hasta 20m).</li>
-        <li>Permiso de conducir (B) y vehículo propio.</li>
+    <div class="window-content space-y-6">
+      <h1 class="text-3xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2">Información Personal</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="mb-2"><strong class="text-blue-800">Nombre Completo:</strong> Akil Espadas Jiménez</p>
+          <p class="mb-2"><strong class="text-blue-800">Ubicación:</strong> Ciudad Real, España</p>
+          <p class="mb-2"><strong class="text-blue-800">Perfil:</strong> Estudiante de Ingeniería Informática buscando activamente la primera inserción en el mundo profesional.</p>
+        </div>
+        <div class="bg-blue-50 p-4 border border-blue-200 rounded">
+          <h3 class="font-bold text-xl text-blue-900 mb-2">Idiomas y Licencias</h3>
+          <p><strong>Inglés:</strong> Nivel B2 (Certificado Oficial Trinity).</p>
+          <p><strong>Movilidad:</strong> Permiso de conducir (B) y vehículo propio, total disponibilidad de desplazamiento.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2 mt-8">Logros, Disciplina y Voluntariado</h2>
+      <ul class="list-disc pl-8 space-y-3 text-lg text-gray-700">
+        <li><strong>Excelencia Académica:</strong> Mención Honorífica en educación secundaria por expediente académico (Media ≥ 9). Este logro refleja mi constancia y capacidad de estudio.</li>
+        <li><strong>Voluntariado Ambiental:</strong> Participación activa en la recogida de residuos y limpieza en las Lagunas de Ruidera durante los años 2024 y 2025.</li>
+        <li><strong>Deporte y Disciplina:</strong> Poseo el Cinturón Marrón de Karate. Además, he sido jugador federado de Balonmano (Pío XII) y Baloncesto (Basket Cervantes). Soy una persona muy activa, lo que me aporta gran disciplina y capacidad para trabajar en equipo.</li>
+        <li><strong>Certificaciones Adicionales:</strong> Título de Buceo Open Water (preparado para inmersiones hasta 20 metros de profundidad).</li>
       </ul>
-      <p><strong>Idiomas:</strong> Inglés B2 (Certificado Oficial Trinity).</p>
     </div>
   </div>
 
-  <!-- Ventana: Experiencia -->
-  <div id="win-experiencia" class="xp-window hidden w-[420px] h-[320px]" style="top: 70px; left: 220px;">
+  <!-- Ventana: Experiencia (AHORA GIGANTE) -->
+  <div id="win-experiencia" class="xp-window hidden w-[75vw] h-[75vh] max-w-[900px] max-h-[750px]" style="top: 8vh; left: 8vw;">
     <div class="xp-titlebar">
       <span>💼 Experiencia.txt - Bloc de notas</span>
       <div class="xp-close-btn" onclick="closeWindow('experiencia')">X</div>
     </div>
-    <div class="window-content space-y-4">
-      <div>
-        <h4 class="font-bold text-blue-800">Asistente de Instalación y Montaje</h4>
-        <p class="text-gray-500 text-xs mb-1">Trabajo de verano</p>
-        <p class="text-xs">Apoyo técnico en empresa de camperización de furgonetas. Instalación de sistemas eléctricos (placas solares, baterías) y trabajos de carpintería desde cero.</p>
+    <div class="window-content space-y-8">
+      <h1 class="text-3xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2">Experiencia Profesional y General</h1>
+      <p class="text-lg text-gray-700">Aunque me encuentro buscando mi primera oportunidad en el sector estrictamente tecnológico, poseo experiencia práctica en otros sectores que me ha dotado de una excelente ética de trabajo, responsabilidad y habilidades manuales/técnicas.</p>
+
+      <div class="bg-gray-50 border border-gray-300 p-6 rounded shadow-sm">
+        <h3 class="font-bold text-2xl text-blue-800">Asistente de Instalación y Montaje</h3>
+        <p class="text-gray-500 font-semibold mb-3">Trabajo intensivo de verano</p>
+        <p class="text-lg text-gray-800">
+          Trabajé como apoyo técnico en una empresa dedicada a la camperización integral de furgonetas. Mis responsabilidades incluyeron la instalación y ruteo de <strong>sistemas eléctricos</strong> complejos (conexión de placas solares, inversores, baterías auxiliares) así como trabajos de carpintería y ensamblaje desde cero. Esto desarrolló mi capacidad para interpretar planos, trabajar con herramientas físicas y resolver problemas mecánicos y eléctricos en tiempo real bajo presión.
+        </p>
       </div>
-      <div>
-        <h4 class="font-bold text-blue-800">Mantenimiento y Gestión</h4>
-        <p class="text-xs">Responsable del cuidado de instalaciones agrícolas familiares y mantenimiento de huerto.</p>
+
+      <div class="bg-gray-50 border border-gray-300 p-6 rounded shadow-sm">
+        <h3 class="font-bold text-2xl text-blue-800">Mantenimiento y Gestión Agrícola</h3>
+        <p class="text-lg text-gray-800 mt-2">
+          Responsable principal del cuidado de instalaciones agrícolas familiares y del mantenimiento constante de un huerto. Este trabajo requiere planificación a largo plazo, constancia diaria y adaptación rápida a los imprevistos (clima, plagas, averías en sistemas de riego).
+        </p>
       </div>
-      <div>
-        <h4 class="font-bold text-blue-800">Atención y Cuidado</h4>
-        <p class="text-xs">Experiencia en el cuidado y supervisión de menores y mascotas durante fines de semana.</p>
+
+      <div class="bg-gray-50 border border-gray-300 p-6 rounded shadow-sm">
+        <h3 class="font-bold text-2xl text-blue-800">Atención y Cuidado</h3>
+        <p class="text-lg text-gray-800 mt-2">
+          Amplia experiencia en el cuidado, tutela y supervisión de menores y mascotas durante fines de semana. Me ha aportado altos niveles de paciencia, responsabilidad directa sobre terceros y excelentes habilidades de comunicación interpersonal.
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- Ventana: Educacion -->
-  <div id="win-educacion" class="xp-window hidden w-[400px] h-[250px]" style="top: 100px; left: 240px;">
+  <!-- Ventana: Educacion (AHORA GIGANTE) -->
+  <div id="win-educacion" class="xp-window hidden w-[70vw] h-[70vh] max-w-[850px] max-h-[700px]" style="top: 10vh; left: 12vw;">
     <div class="xp-titlebar">
       <span>🎓 Educacion.txt - Bloc de notas</span>
       <div class="xp-close-btn" onclick="closeWindow('educacion')">X</div>
     </div>
-    <div class="window-content space-y-4">
-      <div>
-        <h4 class="font-bold text-blue-800">Grado en Ingeniería Informática (Intensificación TI)</h4>
-        <p class="text-gray-600 text-xs">UCLM - ESI, Ciudad Real | 2023 - Actualidad (4º Año)</p>
+    <div class="window-content space-y-6">
+      <h1 class="text-3xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2">Formación Académica</h1>
+      
+      <div class="p-6 bg-blue-50 border-l-4 border-blue-600 mb-6 shadow-sm">
+        <h3 class="font-bold text-2xl text-blue-900">Grado en Ingeniería Informática</h3>
+        <p class="text-xl font-semibold text-gray-700 mb-2">Intensificación en Tecnologías de la Información (TI)</p>
+        <p class="text-lg text-gray-600">Universidad de Castilla-La Mancha (UCLM) - ESI, Ciudad Real | 2023 - Actualidad</p>
+        <p class="text-lg mt-4 text-gray-800">Actualmente cursando el 4º y último año de la titulación, habiendo adquirido una base sólida en arquitectura de sistemas, desarrollo de software, redes y seguridad de la información.</p>
       </div>
-      <div>
-        <h4 class="font-bold text-blue-800">Interés formativo próximo</h4>
-        <p class="text-xs">Máster en Ciberseguridad.</p>
+
+      <div class="p-6 border border-gray-300 rounded mb-6">
+        <h3 class="font-bold text-2xl text-blue-800">Proyección Futura (Próximos Pasos)</h3>
+        <p class="text-lg mt-2 text-gray-800">Mi principal interés formativo inmediato tras graduarme es cursar un <strong>Máster en Ciberseguridad</strong>, campo en el que deseo especializarme y desarrollar mi carrera profesional a largo plazo.</p>
       </div>
-      <div>
-        <h4 class="font-bold text-blue-800">Cursos Adicionales</h4>
-        <p class="text-xs">"Aprendizaje en la búsqueda y el uso de la información" (UCLM).</p>
+
+      <div class="p-6 border border-gray-300 rounded">
+        <h3 class="font-bold text-2xl text-blue-800">Cursos Complementarios</h3>
+        <ul class="list-disc pl-6 text-lg text-gray-800 mt-2 space-y-2">
+          <li><strong>"Aprendizaje en la búsqueda y el uso de la información"</strong> impartido por la UCLM. Curso enfocado en OSINT básico, filtrado de datos y uso eficiente de bases documentales complejas.</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- Ventana: Habilidades -->
-  <div id="win-habilidades" class="xp-window hidden w-[350px] h-[350px]" style="top: 50px; left: 280px;">
+  <!-- Ventana: Habilidades (AHORA GIGANTE) -->
+  <div id="win-habilidades" class="xp-window hidden w-[80vw] h-[85vh] max-w-[950px] max-h-[800px]" style="top: 4vh; left: 10vw;">
     <div class="xp-titlebar">
       <span>⚡ Habilidades.txt</span>
       <div class="xp-close-btn" onclick="closeWindow('habilidades')">X</div>
     </div>
-    <div class="window-content text-sm space-y-2 font-mono">
-      <p class="font-bold text-blue-800 mb-2 border-b">Lenguajes de Programación:</p>
-      <div class="flex justify-between text-xs"><span>Java</span><span class="font-bold text-green-600">Avanzado</span></div>
-      <div class="flex justify-between text-xs"><span>C</span><span class="text-yellow-600">Medio</span></div>
-      <div class="flex justify-between text-xs"><span>Python</span><span class="text-yellow-600">Medio</span></div>
-      <div class="flex justify-between text-xs"><span>C++ / HTML</span><span>Básico/Medio</span></div>
+    <div class="window-content space-y-8">
+      <h1 class="text-3xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2">Competencias Digitales (Hard Skills)</h1>
       
-      <p class="font-bold text-blue-800 mb-2 mt-4 border-b">Herramientas y Software:</p>
-      <div class="flex justify-between text-xs"><span>GitHub</span><span>Uso diario</span></div>
-      <div class="flex justify-between text-xs"><span>Visual Paradigm</span><span class="font-bold text-green-600">Avanzado</span></div>
-      <div class="flex justify-between text-xs"><span>MS Project & Office</span><span>Fluido</span></div>
-      <div class="flex justify-between text-xs"><span>WordPress</span><span>Fluido</span></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-50 p-6 border border-gray-300 rounded">
+          <h3 class="font-bold text-xl mb-4 text-gray-800">Lenguajes de Programación</h3>
+          <ul class="space-y-4 text-lg">
+            <li class="flex justify-between items-center border-b pb-2"><span>☕ <strong>Java</strong></span><span class="font-bold text-green-700 bg-green-100 px-3 py-1 rounded">Avanzado</span></li>
+            <li class="flex justify-between items-center border-b pb-2"><span>💻 <strong>C</strong></span><span class="font-bold text-yellow-700 bg-yellow-100 px-3 py-1 rounded">Medio</span></li>
+            <li class="flex justify-between items-center border-b pb-2"><span>🐍 <strong>Python</strong></span><span class="font-bold text-yellow-700 bg-yellow-100 px-3 py-1 rounded">Medio</span></li>
+            <li class="flex justify-between items-center"><span>🌐 <strong>C++ / HTML</strong></span><span class="text-gray-600 font-semibold">Básico/Medio</span></li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 p-6 border border-gray-300 rounded">
+          <h3 class="font-bold text-xl mb-4 text-gray-800">Herramientas y Software</h3>
+          <ul class="space-y-4 text-lg">
+            <li class="flex justify-between items-center border-b pb-2"><span>🐙 <strong>GitHub / Git</strong></span><span class="font-bold text-blue-700">Uso diario</span></li>
+            <li class="flex justify-between items-center border-b pb-2"><span>📊 <strong>Visual Paradigm</strong></span><span class="font-bold text-green-700 bg-green-100 px-3 py-1 rounded">Avanzado</span></li>
+            <li class="flex justify-between items-center border-b pb-2"><span>📈 <strong>MS Project & Office</strong></span><span class="font-bold text-blue-700">Fluido</span></li>
+            <li class="flex justify-between items-center"><span>📝 <strong>WordPress</strong></span><span class="font-bold text-blue-700">Fluido</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="text-3xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2 mt-8">Habilidades Blandas (Soft Skills)</h1>
+      <div class="space-y-4 text-lg text-gray-800">
+        <div class="p-4 bg-yellow-50 border-l-4 border-yellow-500">
+          <h3 class="font-bold text-xl">🛡️ Resiliencia Técnica</h3>
+          <p>Capacidad demostrada para no rendirme jamás ante errores de código y bugs. Disfruto investigando y logrando resolver problemas técnicos complejos de forma completamente autónoma, revisando documentación y trazas de error sin frustrarme.</p>
+        </div>
+        <div class="p-4 bg-green-50 border-l-4 border-green-500">
+          <h3 class="font-bold text-xl">🧘‍♂️ Control del Estrés (Perfil Sereno)</h3>
+          <p>Destaco especialmente por mi carácter templado. En situaciones críticas o caóticas, mantengo la calma de manera natural, lo que me permite tomar decisiones racionales, resolutivas y optimizar el tiempo de respuesta ante caídas de sistema.</p>
+        </div>
+        <div class="p-4 bg-blue-50 border-l-4 border-blue-500">
+          <h3 class="font-bold text-xl">🤝 Trabajo en Equipo y Empatía</h3>
+          <p>Debido a mi trayectoria en deportes de equipo (Balonmano, Baloncesto), tengo totalmente interiorizada la cooperación, la comunicación asertiva con mis compañeros y el apoyo mutuo para alcanzar los objetivos del sprint o proyecto.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Ventana: Proyectos -->
-  <div id="win-proyectos" class="xp-window hidden w-[480px] h-[340px]" style="top: 150px; left: 80px;">
+  <!-- Ventana: Proyectos (AHORA GIGANTE CON IMÁGENES Y DETALLES) -->
+  <div id="win-proyectos" class="xp-window hidden w-[90vw] h-[85vh] max-w-[1200px] max-h-[900px]" style="top: 5vh; left: 5vw;">
     <div class="xp-titlebar">
-      <span>📁 C:\Akil\MIS_PROYECTOS</span>
+      <span>📁 C:\Akil\MIS_PROYECTOS (Portfolio Completo)</span>
       <div class="xp-close-btn" onclick="closeWindow('proyectos')">X</div>
     </div>
-    <div class="window-content bg-white space-y-4">
+    <div class="window-content bg-gray-100 p-6 space-y-8">
       
-      <!-- Ciberseguridad -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <h4 class="font-bold text-sm text-blue-800">🔒 Ciberseguridad (CVE-41892)</h4>
-        <p class="text-xs">Análisis de vulnerabilidad en entorno controlado, estudio de su explotación y aplicación de medidas de resolución.</p>
-      </div>
+      <h1 class="text-3xl font-bold text-center text-blue-900 mb-8">Mis Proyectos Tecnológicos</h1>
 
-      <!-- Redes y Seguridad -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <h4 class="font-bold text-sm text-blue-800">🌐 Redes y Seguridad</h4>
-        <p class="text-xs">Diseño de red segura para edificio de la UAH utilizando Packet Tracer sobre planos y aplicando políticas de seguridad.</p>
-      </div>
-
-      <!-- E-commerce -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <h4 class="font-bold text-sm text-blue-800">🛒 Desarrollo E-commerce (BM Pozuelo)</h4>
-        <p class="text-xs">Proyecto web real para club de 1ª División Española. En fase de diseño e implementación tras captación de requisitos.</p>
-      </div>
-
-      <!-- Sistemas Distribuidos (Bicis) -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <div class="flex justify-between items-start mb-1">
-          <h4 class="font-bold text-sm text-blue-800">🚲 Sistemas Distribuidos (Alquiler Bicicletas)</h4>
-          <a href="https://github.com/AkilEspa/TysWebMio" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+      <!-- Proyecto 1: Ciberseguridad -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <!-- Placeholder de imagen: Reemplázalo con tu imagen real -->
+          <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=Proyecto+Ciberseguridad" alt="Ciberseguridad" class="w-full h-auto object-cover border border-gray-400">
         </div>
-        <p class="text-xs">Plataforma web con pasarela de pago, simulador de tráfico en tiempo real y validación segura de tokens de sesión.</p>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-blue-800 mb-2">🔒 Análisis de Ciberseguridad (CVE-41892)</h3>
+            <p class="text-lg text-gray-700 mb-4">Investigación y análisis exhaustivo de vulnerabilidades en un entorno de laboratorio controlado. El proyecto abarca el estudio teórico de la falla, la explotación práctica (pentesting) de la vulnerabilidad CVE-41892 y la posterior aplicación de parches y políticas para su correcta mitigación y resolución.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Pentesting</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">CVE Analysis</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Mitigación</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Machine Learning -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <div class="flex justify-between items-start mb-1">
-          <h4 class="font-bold text-sm text-blue-800">🧠 Machine Learning (NLP)</h4>
-          <a href="https://github.com/Aitor42/0-AiDea" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+      <!-- Proyecto 2: Redes -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/047857/ffffff?text=Arquitectura+de+Redes" alt="Redes Packet Tracer" class="w-full h-auto object-cover border border-gray-400">
         </div>
-        <p class="text-xs">Desarrollo de un clasificador de texto multilingüe y análisis de tópicos (BERTopic) para inferencia de lenguaje natural.</p>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-blue-800 mb-2">🌐 Arquitectura y Seguridad de Redes (UAH)</h3>
+            <p class="text-lg text-gray-700 mb-4">Diseño e implementación de una red completamente segura para un edificio de la Universidad de Alcalá de Henares. Utilizando Cisco Packet Tracer sobre los planos arquitectónicos reales, se aplicaron configuraciones avanzadas de routing, segmentación por VLANs, y estrictas políticas de seguridad (ACLs).</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Cisco Packet Tracer</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">VLANs / ACLs</span>
+          </div>
+        </div>
       </div>
 
-      <!-- IPOKEMON -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <div class="flex justify-between items-start mb-1">
-          <h4 class="font-bold text-sm text-blue-800">👾 IPOKemon (C# y UWP)</h4>
-          <a href="https://github.com/AkilEspa/IPOKEMON" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+      <!-- Proyecto 3: E-commerce -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/b91c1c/ffffff?text=E-commerce+BM+Pozuelo" alt="Ecommerce" class="w-full h-auto object-cover border border-gray-400">
         </div>
-        <p class="text-xs">Aplicación de escritorio responsive con Fluent Design enfocada en UI/UX, incluye minijuego de combate y notificaciones Windows.</p>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-blue-800 mb-2">🛒 Desarrollo E-commerce Real (BM Pozuelo)</h3>
+            <p class="text-lg text-gray-700 mb-4">Proyecto web corporativo para un club deportivo de la 1ª División Española. Abarca todo el ciclo de vida del software: reuniones iniciales de captación de requisitos con el cliente, diseño de la interfaz (UI/UX) y actual fase de implementación técnica para la gestión de productos y socios.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Desarrollo Web</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Ingeniería de Requisitos</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Multimedia -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <div class="flex justify-between items-start mb-1">
-          <h4 class="font-bold text-sm text-blue-800">🔄 Conversor y Compresor Multimedia</h4>
-          <a href="https://github.com/AkilEspa/multimedia_lab" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+      <!-- Proyecto 4: Sistemas Distribuidos -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/4338ca/ffffff?text=App+Alquiler+Bicis" alt="Sistemas Distribuidos" class="w-full h-auto object-cover border border-gray-400">
         </div>
-        <p class="text-xs">Aplicación web para gestión, conversión de formatos y reducción de tamaño de archivos (imágenes, audio, vídeo, ZIP) con reportes PDF.</p>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-2xl font-bold text-blue-800">🚲 Sist. Distribuidos (Alquiler Bicicletas)</h3>
+              <a href="https://github.com/AkilEspa/TysWebMio" target="_blank" class="text-sm bg-gray-200 border-2 border-gray-400 px-4 py-1 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline shadow">GitHub 🔗</a>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">Arquitectura distribuida para una plataforma de alquiler web. Integra una pasarela de pago funcional, simulador interactivo de tráfico en tiempo real y, lo más importante, validación segura de tokens de sesión para proteger las cuentas de los usuarios y las transacciones.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Web Architecture</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Tokens / Seguridad</span>
+          </div>
+        </div>
       </div>
 
-      <!-- PeTracker -->
-      <div class="border border-gray-200 p-2 hover:bg-blue-50">
-        <div class="flex justify-between items-start mb-1">
-          <h4 class="font-bold text-sm text-blue-800">🐕 PeTracker (Visión Artificial)</h4>
-          <a href="https://github.com/JoseFelixBarbRoj/isi-PeTracker" target="_blank" class="text-[11px] bg-gray-200 border border-gray-400 px-2 py-0.5 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline">GitHub 🔗</a>
+      <!-- Proyecto 5: NLP -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/9333ea/ffffff?text=Machine+Learning+NLP" alt="Machine Learning" class="w-full h-auto object-cover border border-gray-400">
         </div>
-        <p class="text-xs">Proyecto de inteligencia artificial y visión por computador para la clasificación y búsqueda de mascotas perdidas.</p>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-2xl font-bold text-blue-800">🧠 Machine Learning (NLP y Text Mining)</h3>
+              <a href="https://github.com/Aitor42/0-AiDea" target="_blank" class="text-sm bg-gray-200 border-2 border-gray-400 px-4 py-1 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline shadow">GitHub 🔗</a>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">Desarrollo de algoritmos de inteligencia artificial aplicados al Procesamiento de Lenguaje Natural (NLP). Se implementó un clasificador de texto multilingüe y modelos avanzados de modelado de temas (BERTopic) para la inferencia, agrupación y análisis de enormes volúmenes de texto.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Python</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">NLP / BERTopic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 6: IPOKemon -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/eab308/000000?text=IPOKemon+UWP" alt="IPOKemon" class="w-full h-auto object-cover border border-gray-400">
+        </div>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-2xl font-bold text-blue-800">👾 IPOKemon (C# y UWP)</h3>
+              <a href="https://github.com/AkilEspa/IPOKEMON" target="_blank" class="text-sm bg-gray-200 border-2 border-gray-400 px-4 py-1 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline shadow">GitHub 🔗</a>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">Aplicación de escritorio completamente responsive programada en C# bajo la plataforma Universal Windows Platform (UWP). Fuerte enfoque en el diseño de interfaces UI/UX usando pautas de Fluent Design. Incorpora un minijuego de combate por turnos, animaciones fluidas y notificaciones nativas del SO.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">C#</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">UWP / Fluent Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 7: Multimedia -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/db2777/ffffff?text=Multimedia+Tool" alt="Multimedia" class="w-full h-auto object-cover border border-gray-400">
+        </div>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-2xl font-bold text-blue-800">🔄 Compresor y Conversor Multimedia</h3>
+              <a href="https://github.com/AkilEspa/multimedia_lab" target="_blank" class="text-sm bg-gray-200 border-2 border-gray-400 px-4 py-1 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline shadow">GitHub 🔗</a>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">Plataforma web potente para la gestión y manipulación masiva de archivos. Permite la conversión de distintos formatos y la reducción inteligente del peso de ficheros (imágenes, audios, vídeos y archivos ZIP). Además, el sistema genera dinámicamente reportes en PDF con las estadísticas de conversión.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">File Processing</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">PDF Generation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 8: PeTracker -->
+      <div class="flex flex-col lg:flex-row bg-white border-2 border-gray-300 shadow-md hover:shadow-lg transition duration-200">
+        <div class="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 bg-gray-200 flex items-center justify-center p-4">
+          <img src="https://placehold.co/600x400/ea580c/ffffff?text=PeTracker+AI" alt="PeTracker" class="w-full h-auto object-cover border border-gray-400">
+        </div>
+        <div class="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-2xl font-bold text-blue-800">🐕 PeTracker (Visión Artificial)</h3>
+              <a href="https://github.com/JoseFelixBarbRoj/isi-PeTracker" target="_blank" class="text-sm bg-gray-200 border-2 border-gray-400 px-4 py-1 hover:bg-gray-300 font-bold ml-2 shrink-0 text-black no-underline shadow">GitHub 🔗</a>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">Innovador proyecto basado en Inteligencia Artificial y Computer Vision. El sistema está diseñado para la clasificación visual automatizada y la búsqueda inteligente de mascotas perdidas, cruzando fotos subidas por los usuarios con bases de datos en tiempo real mediante reconocimiento de patrones.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">IA</span>
+            <span class="px-3 py-1 bg-gray-200 text-sm font-bold border border-gray-400 rounded">Computer Vision</span>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 
   <!-- Ventana: Contacto -->
-  <div id="win-contacto" class="xp-window hidden w-[320px] h-[200px]" style="top: 200px; left: 350px;">
+  <div id="win-contacto" class="xp-window hidden w-[450px] shadow-2xl" style="top: 25vh; left: 35vw;">
     <div class="xp-titlebar">
       <span>📧 Contacto.txt</span>
       <div class="xp-close-btn" onclick="closeWindow('contacto')">X</div>
     </div>
-    <div class="window-content space-y-3 text-sm">
-      <p class="text-blue-800 font-bold mb-2 border-b">Datos de contacto directo:</p>
-      <p>📱 <strong>Móvil:</strong> <br><span class="text-gray-700">665 198 920</span></p>
-      <p>✉️ <strong>Email:</strong> <br><a href="mailto:akil.espadas@gmail.com" class="text-blue-600 underline hover:text-blue-800">akil.espadas@gmail.com</a></p>
+    <div class="window-content space-y-6">
+      <h2 class="text-2xl text-blue-900 font-bold mb-4 border-b-2 border-blue-200 pb-2">Información de Contacto Directo</h2>
+      <p class="text-lg">📱 <strong>Teléfono Móvil:</strong> <br><span class="text-gray-700 text-xl font-bold">665 198 920</span></p>
+      <p class="text-lg">✉️ <strong>Correo Electrónico:</strong> <br><a href="mailto:akil.espadas@gmail.com" class="text-blue-600 underline hover:text-blue-800 text-xl font-bold">akil.espadas@gmail.com</a></p>
+      <p class="text-lg">🔗 <strong>LinkedIn:</strong> <br><a href="https://www.linkedin.com/in/akil-espadas" target="_blank" class="text-blue-600 underline hover:text-blue-800 font-bold">Visitar Perfil</a></p>
     </div>
   </div>
 
   <!-- Ventana: Juego (Akil.exe) -->
-  <div id="win-akil" class="xp-window hidden w-[600px] h-[340px]" style="top: 50px; left: 10vw;">
+  <div id="win-akil" class="xp-window hidden w-[80vw] max-w-[800px] h-[500px]" style="top: 15vh; left: 10vw;">
     <div class="xp-titlebar">
       <span>🎮 Akil.exe</span>
       <div class="xp-close-btn" onclick="closeWindow('akil')">X</div>
     </div>
     
-    <div class="bg-[#ece9d8] text-xs py-1 px-2 border-b border-white flex gap-3 text-gray-800">
-      <span class="hover:bg-blue-600 hover:text-white px-1 cursor-pointer" onclick="initGame()">Reintentar</span>
-      <span class="hover:bg-blue-600 hover:text-white px-1 cursor-pointer" onclick="alert('Usa ESPACIO, Flecha ARRIBA o haz clic en el juego para saltar.')">Ayuda</span>
+    <div class="bg-[#ece9d8] text-sm py-2 px-4 border-b border-white flex gap-4 text-gray-800 font-bold">
+      <span class="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer border border-transparent hover:border-white" onclick="initGame()">🔄 Reintentar</span>
+      <span class="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer border border-transparent hover:border-white" onclick="alert('Usa ESPACIO, Flecha ARRIBA o haz clic en el juego para saltar.')">❓ Ayuda</span>
     </div>
     
     <div class="bg-black p-2 flex-1 flex flex-col rounded-b-lg">
-      <div class="relative w-full bg-[#87CEEB] overflow-hidden border-2 border-gray-600 rounded flex-1">
-        <canvas id="gameCanvas" width="580" height="230" class="w-full h-full cursor-pointer block"></canvas>
+      <div class="relative w-full bg-[#87CEEB] overflow-hidden border-4 border-gray-600 rounded flex-1">
+        <canvas id="gameCanvas" width="800" height="350" class="w-full h-full cursor-pointer block"></canvas>
         
         <!-- Pantalla de inicio/GameOver -->
         <div id="game-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 text-white">
-          <h2 id="game-title" class="text-3xl font-bold mb-2 text-yellow-300 drop-shadow-md">AKIL RUNNER</h2>
-          <p id="game-subtitle" class="mb-4 text-sm">Supera los obstáculos de tu carrera</p>
-          <button onclick="initGame()" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded font-bold border-2 border-white shadow-lg">
-            ¡Jugar! (Espacio)
+          <h2 id="game-title" class="text-5xl font-bold mb-4 text-yellow-300 drop-shadow-md tracking-wider">AKIL RUNNER</h2>
+          <p id="game-subtitle" class="mb-8 text-xl">Supera los obstáculos de tu carrera profesional</p>
+          <button onclick="initGame()" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded font-bold border-2 border-white shadow-lg text-xl transition transform hover:scale-105">
+            ▶️ ¡Jugar! (Espacio)
           </button>
         </div>
       </div>
-      <div class="flex justify-between text-white text-xs mt-2 px-2 font-mono">
-        <span>Controles: ESPACIO / Clic</span>
-        <span>Récord: <span id="high-score">0</span></span>
+      <div class="flex justify-between text-white text-base mt-3 px-4 font-mono">
+        <span>Controles: ESPACIO / Clic Izquierdo</span>
+        <span>Récord Actual: <span id="high-score" class="text-yellow-400 font-bold">0</span></span>
       </div>
     </div>
   </div>
 
   <div class="xp-taskbar">
-    <div class="xp-start-btn" onclick="alert('Menú Inicio. ¡Abre los iconos del escritorio!')">
-      <span class="text-lg">inicio</span>
+    <!-- El botón ahora abre la pantalla principal de nuevo -->
+    <div class="xp-start-btn" onclick="document.getElementById('welcome-screen').style.display='flex'">
+      <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" class="w-6 h-6 mr-2 filter drop-shadow">
+      <span>Inicio</span>
     </div>
-    <div class="bg-gradient-to-b from-[#139ee9] to-[#0f80d8] border-l border-[#1042af] px-4 flex items-center text-white text-xs shadow-inner">
+    <div class="bg-gradient-to-b from-[#139ee9] to-[#0f80d8] border-l border-[#1042af] px-6 flex items-center text-white text-sm shadow-inner font-bold">
       <span id="system-clock">12:00</span>
     </div>
   </div>
@@ -498,6 +651,7 @@
         bringToFront(win);
         // Si es el juego, dibujamos el fondo inicial si no está corriendo
         if (id === 'akil' && !gameRunning) {
+          // Ajustar canvas ratio real si es necesario, pero las clases manejan w-full h-full
           drawStaticBackground();
         }
       }
@@ -549,7 +703,6 @@
     icons.forEach(icon => {
       let isDraggingIcon = false, startX, startY, initX, initY;
 
-      // Eventos Pointer para soportar tanto Ratón como Pantallas Táctiles
       icon.addEventListener('pointerdown', (e) => {
         isDraggingIcon = true;
         startX = e.clientX;
@@ -558,7 +711,7 @@
         initY = icon.offsetTop;
         icon.style.zIndex = 50;
         icon.setPointerCapture(e.pointerId);
-        e.preventDefault(); // Evita selección de texto o imágenes al arrastrar
+        e.preventDefault(); 
       });
 
       icon.addEventListener('pointermove', (e) => {
@@ -617,26 +770,23 @@
     let highScore = localStorage.getItem('akilHighScoreXP') || 0;
     scoreElement.innerText = highScore;
 
-    // Constantes físicas del juego
     const GRAVITY = 0.6;
-    const JUMP_FORCE = 10.5;
-    const GROUND_HEIGHT = 40;
-    const BASE_SPEED = 5;
+    const JUMP_FORCE = 11;
+    const GROUND_HEIGHT = 50;
+    const BASE_SPEED = 6;
 
-    // El jugador (Akil)
     const akil = {
-      x: 50,
+      x: 70,
       y: 0,
-      width: 30,  // Ancho visual
-      height: 45, // Alto visual
+      width: 40,  
+      height: 60, 
       dy: 0,
       grounded: false
     };
 
     let obstacles = [];
-    const stages = ["Media ≥ 9", "UCLM ESI", "Inglés B2", "Open Water", "Karate", "CVE-41892","Voluntariado"];
+    const stages = ["Media ≥ 9", "UCLM ESI", "Inglés B2", "Open Water", "Karate", "CVE-41892", "Voluntariado", "Ciberseguridad"];
     
-    // Controles
     function handleJump(e) {
       const winAkil = document.getElementById('win-akil');
       if (!winAkil.classList.contains('hidden')) {
@@ -684,76 +834,61 @@
         highScore = Math.floor(score);
         localStorage.setItem('akilHighScoreXP', highScore);
         scoreElement.innerText = highScore;
-        subtitle.innerText += " - ¡NUEVO RÉCORD!";
+        subtitle.innerText += " - ¡NUEVO RÉCORD ESTABLECIDO!";
       }
     }
 
     function drawStaticBackground() {
-      // Cielo
       ctx.fillStyle = '#87CEEB';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      // Suelo - Tierra
       ctx.fillStyle = '#8B4513';
       ctx.fillRect(0, canvas.height - GROUND_HEIGHT, canvas.width, GROUND_HEIGHT);
-      // Suelo - Hierba
       ctx.fillStyle = '#228B22';
-      ctx.fillRect(0, canvas.height - GROUND_HEIGHT, canvas.width, 8);
+      ctx.fillRect(0, canvas.height - GROUND_HEIGHT, canvas.width, 10);
     }
 
     function drawPlayer() {
       ctx.save();
-      // Animación de correr: alternar piernas cada 8 frames si está en el suelo
       let runFrame = Math.floor(frames / 8) % 2;
       
-      // Color del personaje
       ctx.strokeStyle = '#000';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 4;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
 
-      // Posición central del cuerpo
       let cx = akil.x + akil.width / 2;
-      let cy = akil.y + 15;
+      let cy = akil.y + 20;
 
       // Cabeza
       ctx.beginPath();
-      ctx.arc(cx + 2, cy - 8, 7, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffcc99'; // Tono de piel
+      ctx.arc(cx + 2, cy - 12, 10, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffcc99'; 
       ctx.fill();
       ctx.stroke();
 
       // Cuerpo
       ctx.beginPath();
       ctx.moveTo(cx, cy);
-      ctx.lineTo(cx, cy + 15);
+      ctx.lineTo(cx, cy + 20);
       ctx.stroke();
 
-      // Brazos y piernas (Animados)
+      // Brazos y piernas
       if (!akil.grounded) {
-        // Pose de salto
-        // Brazos
-        ctx.beginPath(); ctx.moveTo(cx, cy + 2); ctx.lineTo(cx - 10, cy - 5); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(cx, cy + 2); ctx.lineTo(cx + 10, cy - 8); ctx.stroke();
-        // Piernas
-        ctx.beginPath(); ctx.moveTo(cx, cy + 15); ctx.lineTo(cx - 8, cy + 25); ctx.lineTo(cx - 5, cy + 30); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(cx, cy + 15); ctx.lineTo(cx + 10, cy + 20); ctx.lineTo(cx + 12, cy + 28); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy + 3); ctx.lineTo(cx - 15, cy - 8); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy + 3); ctx.lineTo(cx + 15, cy - 12); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy + 20); ctx.lineTo(cx - 12, cy + 35); ctx.lineTo(cx - 8, cy + 42); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy + 20); ctx.lineTo(cx + 15, cy + 28); ctx.lineTo(cx + 18, cy + 38); ctx.stroke();
       } else {
         if (runFrame === 0) {
-          // Corriendo - Pose 1
-          // Brazos
-          ctx.beginPath(); ctx.moveTo(cx, cy + 2); ctx.lineTo(cx - 8, cy + 10); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(cx, cy + 2); ctx.lineTo(cx + 10, cy - 2); ctx.stroke();
-          // Piernas
-          ctx.beginPath(); ctx.moveTo(cx, cy + 15); ctx.lineTo(cx - 10, cy + 25); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(cx, cy + 15); ctx.lineTo(cx + 12, cy + 25); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 3); ctx.lineTo(cx - 12, cy + 15); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 3); ctx.lineTo(cx + 15, cy - 3); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 20); ctx.lineTo(cx - 15, cy + 35); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 20); ctx.lineTo(cx + 18, cy + 35); ctx.stroke();
         } else {
-          // Corriendo - Pose 2
-          // Brazos
-          ctx.beginPath(); ctx.moveTo(cx, cy + 2); ctx.lineTo(cx + 8, cy + 10); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(cx, cy + 2); ctx.lineTo(cx - 10, cy - 2); ctx.stroke();
-          // Piernas
-          ctx.beginPath(); ctx.moveTo(cx, cy + 15); ctx.lineTo(cx, cy + 28); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(cx, cy + 15); ctx.lineTo(cx + 5, cy + 22); ctx.lineTo(cx - 5, cy + 28); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 3); ctx.lineTo(cx + 12, cy + 15); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 3); ctx.lineTo(cx - 15, cy - 3); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 20); ctx.lineTo(cx, cy + 38); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx, cy + 20); ctx.lineTo(cx + 8, cy + 30); ctx.lineTo(cx - 8, cy + 38); ctx.stroke();
         }
       }
       ctx.restore();
@@ -761,10 +896,10 @@
 
     function spawnObstacle() {
       const text = stages[Math.floor(Math.random() * stages.length)];
-      ctx.font = 'bold 14px Tahoma';
+      ctx.font = 'bold 16px Tahoma';
       const textWidth = ctx.measureText(text).width;
-      const width = Math.max(50, textWidth + 20);
-      const height = 30 + Math.random() * 15; // Altura ligeramente variable
+      const width = Math.max(70, textWidth + 30);
+      const height = 40 + Math.random() * 20;
       
       obstacles.push({
         x: canvas.width,
@@ -780,11 +915,9 @@
 
       drawStaticBackground();
 
-      // Físicas del jugador
       akil.dy += GRAVITY;
       akil.y += akil.dy;
 
-      // Colisión con el suelo
       if (akil.y + akil.height >= canvas.height - GROUND_HEIGHT) {
         akil.y = canvas.height - GROUND_HEIGHT - akil.height;
         akil.dy = 0;
@@ -793,10 +926,8 @@
 
       drawPlayer();
 
-      // Ajuste de Hitbox del Jugador (Se reduce un 20% en anchura y altura para hacerlo más justo)
-      // En lugar de colisionar con el 100% de la caja visual, colisionamos con un área interna.
-      const hitToleranceX = akil.width * 0.2; // 20% de tolerancia horizontal
-      const hitToleranceY = akil.height * 0.15; // 15% de tolerancia vertical
+      const hitToleranceX = akil.width * 0.2; 
+      const hitToleranceY = akil.height * 0.15; 
       
       const pBox = {
         x: akil.x + hitToleranceX,
@@ -805,13 +936,10 @@
         h: akil.height - hitToleranceY
       };
 
-      // Dificultad progresiva
       let currentSpeed = BASE_SPEED + (score / 400); 
 
-      // Generar obstáculos
-      // Controlar la distancia entre obstáculos basados en la velocidad
       if (frames > 50 && Math.random() < 0.02) {
-        if(obstacles.length === 0 || canvas.width - obstacles[obstacles.length-1].x > 250) {
+        if(obstacles.length === 0 || canvas.width - obstacles[obstacles.length-1].x > 300) {
             spawnObstacle();
         }
       }
@@ -820,29 +948,25 @@
         let obs = obstacles[i];
         obs.x -= currentSpeed;
 
-        // Dibujar caja del obstáculo
-        ctx.fillStyle = '#fcd34d'; // Amarillo suave
+        ctx.fillStyle = '#fcd34d'; 
         ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
-        ctx.strokeStyle = '#b45309'; // Borde oscuro
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#b45309'; 
+        ctx.lineWidth = 3;
         ctx.strokeRect(obs.x, obs.y, obs.width, obs.height);
         
-        // Texto
         ctx.fillStyle = '#000';
-        ctx.font = 'bold 13px Tahoma';
+        ctx.font = 'bold 15px Tahoma';
         ctx.textAlign = 'center';
-        ctx.fillText(obs.text, obs.x + obs.width/2, obs.y + 22);
+        ctx.fillText(obs.text, obs.x + obs.width/2, obs.y + 28);
 
-        // Hitbox del obstáculo (También se reduce un 10% por los lados para evitar roces injustos)
         const obsHitToleranceX = obs.width * 0.1;
         const oBox = {
           x: obs.x + obsHitToleranceX,
-          y: obs.y + 2, // Margen superior
+          y: obs.y + 4, 
           w: obs.width - (obsHitToleranceX * 2),
-          h: obs.height - 4
+          h: obs.height - 8
         };
 
-        // Comprobar Colisión (Hitboxes reducidas)
         if (
           pBox.x < oBox.x + oBox.w &&
           pBox.x + pBox.w > oBox.x &&
@@ -853,15 +977,13 @@
         }
       }
 
-      // Eliminar obstáculos fuera de pantalla
       obstacles = obstacles.filter(obs => obs.x + obs.width > 0);
 
-      // Puntuación
       score += 0.1;
       ctx.fillStyle = '#000';
-      ctx.font = 'bold 16px Tahoma';
+      ctx.font = 'bold 20px Tahoma';
       ctx.textAlign = 'right';
-      ctx.fillText(`Puntos: ${Math.floor(score)}`, canvas.width - 15, 25);
+      ctx.fillText(`Puntos: ${Math.floor(score)}`, canvas.width - 20, 30);
 
       frames++;
       if (gameRunning) {
